@@ -1,9 +1,33 @@
 <script setup lang="ts">
-import Logo from "./components/Logo.vue";
-//TODO linki do hydrofilii
+import { ref, computed } from "vue";
+import Nav from "./components/Nav.vue";
+import HphText from "./components/HphText.vue";
+import HphLogo from "./components/HphLogo.vue";
+import About from "./views/About.vue";
+import Albums from "./views/Albums.vue";
+import Page404 from "./views/404.vue";
+
+/**
+ * ROUTING
+ */
+const routes = {
+  "/": About,
+  "/albums": Albums,
+};
+
+const currentPath = ref(window.location.hash);
+
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash
+});
+
+const currentView = computed(() => {
+  return routes[currentPath.value.slice(1) || '/'] || Page404;
+});
+
 const footer_links = [
   ["fa-solid fa-envelope", "mailto:contact@wpww.pl", "contact@wpww.pl"],
-  ["fa-brands fa-facebook", "https://www.facebook.com/wpwwhimself/", "wpwwhimself"],
+  ["fa-brands fa-facebook", "https://www.facebook.com/WPWWHydrophilia", "WPWWHydrophilia"],
   ["fa-brands fa-instagram", "https://www.instagram.com/wpwwhimself/", "wpwwhimself"],
 ];
 
@@ -11,19 +35,19 @@ const today = new Date;
 </script>
 
 <template>
-  <a href="/">
-    <header>
-      <img src="@/assets/logo/hydrophilia.png" alt="logo" class="logo">
-      <img src="@/assets/logo/text.png" alt="hydrophilia text" class="text">
-    </header>
-  </a>
-  <Content />
+  <header>
+    <img src="@/assets/logo/hydrophilia.png" alt="logo" class="logo hph-logo-cont">
+    <HphText />
+    <Nav />
+  </header>
+  <div class="main-wrapper">
+    <component :is="currentView" />
+  </div>
   <footer>
     <div class="flex-right but-mobile-down center">
-      <!-- <Logo /> -->
-      <img src="@/assets/logo/hydrophilia.png" alt="logo" class="logo">
+      <HphLogo />
       <div id="end-bar" class="flex-down">
-        <img src="@/assets/logo/text.png" alt="hydrophilia text" class="text">
+        <HphText />
         <p>
           Website constructed entirely by
           <a href="http://wpww.pl/">Wojciech Przybyła</a>
@@ -46,23 +70,22 @@ const today = new Date;
   </footer>
 </template>
 
-<style scoped>
+<style>
 header{
   position: relative;
   display: flex; justify-content: center; align-items: center;
+  flex-direction: column;
   background-image: url("assets/logo/background.jpg");
   background-position: center;
   background-size: cover;
   padding: 5em;
 }
-header .logo{
+header .hph-logo-cont{
   position: absolute;
   z-index: 1;
-  height: 15em;
 }
-.text{
-  z-index: 2;
-  max-width: 95vw;
+header .logo{
+  height: 15em;
 }
 
 footer{
@@ -81,12 +104,10 @@ footer{
 }
 footer>div:first-child{
     flex-direction: row-reverse;
+    gap: 0;
 }
 footer .logo{
     height: 5em;
-}
-footer .text{
-  height: 1.5em;
 }
 footer h2, footer p{
     margin: 0;
