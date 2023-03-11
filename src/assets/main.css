@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Krona+One&display=swap');
 :root{
-    --accblue: hsl(205, 96%, 50%);
-    --accred: hsl(357, 79%, 50%);
+    --acc: #f42121;
 
     --ok: 46, 184, 46;
     --warning: 247, 167, 20;
@@ -14,7 +13,7 @@
         --bg1: #333;
         --bg2: #444;
         --fg: #eee;
-        /* --acc: hsl(47, 100%, 62%); */
+        /* --accsl(47, 100%, 62%); */
         --bas: hsl(39, 24%, 73%);
     }
 }
@@ -24,7 +23,7 @@
         --bg1: #eee;
         --bg2: #ddd;
         --fg: black;
-        /* --acc: hsl(271, 58%, 59%); */
+        /* --accsl(271, 58%, 59%); */
         --bas: hsl(0, 0%, 88%);
     }
 }
@@ -104,7 +103,7 @@ div, form{
 }
 .hover-light:hover{
     color: inherit;
-    box-shadow: 0 0 1em inset var(--accblue);
+    box-shadow: 0 0 1em inset var(--acc);
 }
 .contact-info{
     display: flex;
@@ -134,7 +133,7 @@ div, form{
     content: " — ";
 }
 .accent{
-    color: var(--accblue);
+    color: var(--acc);
 }
 
 /* CLICKABLE */
@@ -143,7 +142,7 @@ a{
     color: inherit;
 }
 a:hover{
-    color: var(--accblue);
+    color: var(--acc);
 }
 .clickable{
     user-select: none;
@@ -193,7 +192,7 @@ input:disabled, select:disabled, textarea:disabled{
     border-color: #aaaaaa22;
 }
 input:focus, textarea:focus, select:focus{
-    box-shadow: 0 0 15px var(--accred); border-bottom: 2px solid white;
+    box-shadow: 0 0 15px var(--acc); border-bottom: 2px solid white;
 }
 option{
     background-color: var(--bg);
@@ -209,19 +208,19 @@ label{
 }
 input[type="checkbox"]{
     height: 1.2em;
-    accent-color: var(--accred);
+    accent-color: var(--acc);
 }
 *[type="submit"], .submit{
     display: inline-block;
     width: fit-content;
     padding: 0.5em 1.5em; margin: 0.5em auto 0;
-    border: 2px solid var(--accblue);
+    border: 2px solid var(--acc);
     border-radius: 2em;
     transition-duration: 0.3s;
     background-color: var(--bg1);
 }
 *[type="submit"]:hover, .submit:hover{
-    background-color: var(--accblue);
+    background-color: var(--acc);
     color: var(--bg);
     border-color: var(--bg);
 }
@@ -295,7 +294,7 @@ tr:hover{
 }
 .table .header, .table .footer, th{
     font-weight: bold;
-    border: 1px solid var(--accred); border-left: none; border-right: none;
+    border: 1px solid var(--acc); border-left: none; border-right: none;
 }
 
 /**********************BODY*****************/
@@ -320,7 +319,7 @@ nav li{
     list-style-type: none;
 }
 nav .active{
-    background-color: var(--accred);
+    background-color: var(--acc);
     color: var(--bg);
 }
 
