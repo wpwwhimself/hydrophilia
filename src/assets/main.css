@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Krona+One&display=swap');
 :root{
-    --acc: #f42121;
+    --acc: #c01313;
 
     --ok: 46, 184, 46;
     --warning: 247, 167, 20;
@@ -91,11 +91,16 @@ div, form{
 .grid-2, .grid-3{ display: grid; gap: 1em; }
 .grid-2{ grid-template-columns: 1fr 1fr; }
 .grid-3{ grid-template-columns: 1fr 1fr 1fr; }
-.flex-right{
+.flex-right, .flex-down{
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     gap: 1em;
+}
+.flex-right{
+    flex-direction: row;
+}
+.flex-down{
+    flex-direction: column;
 }
 .hover-lift:hover{
     color: inherit;
