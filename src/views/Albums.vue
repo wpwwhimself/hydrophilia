@@ -11,12 +11,13 @@ export type Album = {
   desc?: string,
 };
 
-const currentAlbum = ref({});
+const currentAlbum = ref({} as Album);
 
-function openAlbum(event: Event, album: Album){
+function openAlbum(event: Event & {target: HTMLElement}, album: Album){
   currentAlbum.value = (currentAlbum.value.code != album.code) ? album : {};
-  const offsetBottom = event.target.closest(".album-container").offsetTop + event.target.closest(".album-container").offsetHeight;
-  document.querySelector(".album-highlighter").style.top = `calc(${offsetBottom}px + 0.5em)`;
+  const container = event.target.closest(".album-container") as HTMLElement;
+  const offsetBottom = container.offsetTop + container.offsetHeight;
+  document.querySelector<HTMLElement>(".album-highlighter")!.style.top = `calc(${offsetBottom}px + 0.5em)`;
 }
 </script>
 
