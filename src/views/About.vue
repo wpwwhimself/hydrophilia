@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import Button from '@/components/Button.vue';
+</script>
+
 <template>
   <h1>About</h1>
   <p>
@@ -19,6 +23,10 @@
     Unfortunately, as I come to a shocking realization that free time dwindles with age, the amount of new songs drop to the floor.
     However I still hope there is going to be more...
   </p>
+  <div class="flex-right center">
+    <Button href="#/albums" icon="fa-solid fa-compact-disc">My music</Button>
+    <Button href="#/projects" icon="fa-solid fa-scroll">All of my projects</Button>
+  </div>
 </template>
 
 <style scoped>
