@@ -7,7 +7,7 @@ const props = defineProps([
 <template>
   <div class="album-container flex-right clickable">
     <img
-      :src="`src/data/album_pics/${album.code}.png`"
+      :src="`/album_pics/${album.code}.png`"
       :alt="`${album.name} album pic`"
       class="album-pic"
       >
