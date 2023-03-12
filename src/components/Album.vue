@@ -25,7 +25,7 @@ const props = defineProps([
   padding: 0.5em 1.5em;
 }
 .album-container:hover{
-  background-color: var(--bg2);
+  background-color: var(--bg1);
 }
 .album-pic{
   height: 5em;

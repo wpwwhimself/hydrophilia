@@ -105,6 +105,9 @@ div, form{
 .flex-down{
     flex-direction: column;
 }
+.relative{
+    position: relative;
+}
 .center{
     justify-content: center;
     align-items: center;
