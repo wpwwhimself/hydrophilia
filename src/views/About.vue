@@ -20,3 +20,9 @@
     However I still hope there is going to be more...
   </p>
 </template>
+
+<style scoped>
+p{
+  text-indent: 1em;
+}
+</style>
