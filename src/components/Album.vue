@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Album } from '@/views/Albums.vue';
+import type { Album } from '@/types';
 
 const props = defineProps<{
   album: Album
