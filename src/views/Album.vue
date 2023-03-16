@@ -1,0 +1,51 @@
+<script setup lang="ts">
+import albums from "@/data/albums.json";
+import projects from "@/data/projects.json";
+import { useRoute } from "vue-router";
+import type { Album } from "@/types";
+import Button from "@/components/Button.vue";
+
+const route = useRoute();
+
+let album = albums.filter(el =>
+  el.name.toLowerCase().replace(/[ ']/g, "-") == route.params.albumName
+)[0];
+let tracklist = projects.filter(el =>
+  el.album?.toLowerCase().replace(/[ ']/g, "-") == route.params.albumName
+  &&
+  el.status == 0
+);
+</script>
+
+<template>
+  <div class="grid-2">
+    <img class="album" :src="`/album_pics/${album.code}.png`" :alt="`Album art for ${album.name}`" />
+    <div>
+      <h1 :style="{ color: album.color }">{{ album.name }}</h1>
+      <p class="years ghost">{{ album.years }}</p>
+      <p>{{ album.desc }}</p>
+      <h2>Track list:</h2>
+      <ol class="track-list">
+        <li v-for="project in tracklist">
+          {{ project.title }}
+        </li>
+      </ol>
+    </div>
+  </div>
+  <div class="flex-right center">
+    <Button href="#/albums" icon="fa-solid fa-angles-left">Back</Button>
+  </div>
+</template>
+
+<style scoped>
+.grid-2{
+  justify-items: center;
+}
+.album{
+  width: 40vw;
+}
+.years{
+  font-style: italic;
+  text-align: center;
+}
+</style>

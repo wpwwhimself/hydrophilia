@@ -1,29 +1,7 @@
 <script setup>
-import { ref, computed } from "vue";
 import Nav from "./components/Nav.vue";
 import HphText from "./components/HphText.vue";
 import HphLogo from "./components/HphLogo.vue";
-import About from "./views/About.vue";
-import Albums from "./views/Albums.vue";
-import Page404 from "./views/404.vue";
-
-/**
- * ROUTING
- */
-const routes = {
-  "/": About,
-  "/albums": Albums,
-};
-
-const currentPath = ref(window.location.hash);
-
-window.addEventListener('hashchange', () => {
-  currentPath.value = window.location.hash
-});
-
-const currentView = computed(() => {
-  return routes[currentPath.value.slice(1) || '/'] || Page404;
-});
 
 const footer_links = [
   ["fa-solid fa-envelope", "mailto:contact@wpww.pl", "contact@wpww.pl"],
@@ -41,7 +19,7 @@ const today = new Date;
     <Nav />
   </header>
   <div class="main-wrapper">
-    <component :is="currentView" />
+    <router-view></router-view>
   </div>
   <footer>
     <div class="flex-right but-mobile-down center">

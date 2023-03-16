@@ -1,37 +1,47 @@
 <script setup lang="ts">
-const props = defineProps([
-  "album"
-]);
+import type { Album } from '@/views/Albums.vue';
+
+const props = defineProps<{
+  album: Album
+}>();
 </script>
 
 <template>
-  <div class="album-container flex-right clickable">
-    <img
-      :src="`/album_pics/${album.code}.png`"
-      :alt="`${album.name} album pic`"
-      class="album-pic"
-      >
-    <div class="album-meta">
-      <h2>{{ album.name }}</h2>
-      <i class="ghost">{{ album.years }}</i>
-      <!-- TODO TAGI -->
+  <router-link :to="`/albums/${album.name.toLowerCase().replace(/[ '']/g, '-')}`">
+    <div class="album-container relative">
+      <img
+        :src="`/album_pics/${album.code}.png`"
+        :alt="`${album.name} album pic`"
+        class="album-pic"
+        >
+      <div class="album-meta flex-down center">
+        <h2 :style="{ color: album.color }">{{ album.name }}</h2>
+      </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <style scoped>
 .album-container{
-  align-items: center;
-  padding: 0.5em 1.5em;
+
 }
-.album-container:hover{
-  background-color: var(--bg1);
+.album-meta{
+  opacity: 0;
+  user-select: none;
+  position: absolute;
+  top: 0; left: 0;
+  background: radial-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9));
+  width: 100%; height: calc(100% - 4px);
+  border-radius: 0;
+}
+.album-container:hover .album-meta{
+  opacity: 1;
 }
 .album-pic{
-  height: 5em;
+  height: 15em;
 }
 .album-meta h2{
-  margin: 0;
+  text-align: center;
 }
 
 </style>

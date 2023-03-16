@@ -152,11 +152,11 @@ div, form{
 }
 
 /* CLICKABLE */
-a{
+a, router-link{
     text-decoration: none;
     color: inherit;
 }
-a:hover{
+a:hover, router-link:hover{
     color: var(--acc);
 }
 .clickable{
@@ -325,7 +325,7 @@ nav{
     flex-wrap: wrap;
     align-items: center;
 }
-nav a{
+nav a, nav router-link{
     margin: 0.2em 1em 0.2em 0;
     padding: 0.5em;
     border-radius: 1em;

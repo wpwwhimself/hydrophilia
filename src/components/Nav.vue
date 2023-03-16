@@ -3,17 +3,17 @@ const pages = [
   {
     name: "About",
     icon: "fa-solid fa-house-chimney-user",
-    link: "#/",
+    link: "/",
   },
   {
     name: "Albums",
     icon: "fa-solid fa-compact-disc",
-    link: "#/albums",
+    link: "/albums",
   },
   {
     name: "Projects",
     icon: "fa-solid fa-scroll",
-    link: "#/projects",
+    link: "/projects",
   },
 ];
 </script>
@@ -21,10 +21,10 @@ const pages = [
 <template>
   <nav>
     <li v-for="pos in pages" class="clickable">
-      <a :href="pos.link">
+      <router-link :to="pos.link">
         <i :class="pos.icon"></i>
         {{ pos.name }}
-      </a>
+      </router-link>
     </li>
   </nav>
 </template>
