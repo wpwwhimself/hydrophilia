@@ -22,9 +22,6 @@ const props = defineProps<{
 </template>
 
 <style scoped>
-.album-container{
-
-}
 .album-meta{
   opacity: 0;
   user-select: none;

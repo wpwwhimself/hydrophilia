@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <a :href="href">
+  <a :href="href" class="clickable">
     <i v-if="icon" :class="icon"></i>
     <slot />
   </a>

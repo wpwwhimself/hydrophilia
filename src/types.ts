@@ -14,6 +14,6 @@ export type Project = {
   title?: string,
   album?: string,
   inspiredBy?: string,
-  dataIn: Date,
-  dataOut?: Date,
+  dateIn: Date | null,
+  dateOut: Date | null,
 };
