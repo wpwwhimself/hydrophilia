@@ -5,27 +5,11 @@
     --ok: 46, 184, 46;
     --warning: 247, 167, 20;
     --danger: 218, 69, 69;
-}
-
-@media (prefers-color-scheme: dark){
-    :root{
-        --bg: #222;
-        --bg1: #333;
-        --bg2: #444;
-        --fg: #eee;
-        /* --accsl(47, 100%, 62%); */
-        --bas: hsl(39, 24%, 73%);
-    }
-}
-@media (prefers-color-scheme: light){
-    :root{
-        --bg: white;
-        --bg1: #eee;
-        --bg2: #ddd;
-        --fg: black;
-        /* --accsl(271, 58%, 59%); */
-        --bas: hsl(0, 0%, 88%);
-    }
+    --bg: hsla(0, 0%, 0%, 0.5);
+    --bg1: hsla(0, 0%, 20%, 0.5);
+    --bg2: hsla(0, 0%, 40%, 0.5);
+    --fg: #eee;
+    --bas: hsl(39, 24%, 73%);
 }
 
 /*****************UNIVERSALS****************/
@@ -38,8 +22,11 @@ body{
     display: flex; flex-direction: column; align-items: stretch;
     overflow-x: hidden;
     position: relative;
-    min-height: calc(100vh - 7em);
-    background-color: var(--bg); color: var(--fg);
+    height: calc(100vh - 7em);
+    background-image: url("logo/background.jpg");
+    background-position: center;
+    background-size: cover;
+    color: var(--fg);
 }
 h1, h2, h3, h4{
     font-family: "Krona One";
@@ -313,9 +300,11 @@ tr:hover{
 
 /**********************BODY*****************/
 
-.main-wrapper{
-    width: 90vw;
+#main-wrapper{
+    width: 90vw; height: 50vh;
+    overflow-y: auto;
     margin: 0 auto; padding: 2em;
+    background-color: var(--bg);
 }
 
 /**********************NAV******************/

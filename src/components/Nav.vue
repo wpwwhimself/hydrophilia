@@ -3,7 +3,7 @@ const pages = [
   {
     name: "About",
     icon: "fa-solid fa-house-chimney-user",
-    link: "/",
+    link: "/about",
   },
   {
     name: "Albums",

@@ -32,5 +32,6 @@ import Button from '@/components/Button.vue';
 <style scoped>
 p{
   text-indent: 1em;
+  text-align: justify;
 }
 </style>

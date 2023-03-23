@@ -1,5 +1,5 @@
 <template>
-  <a href="/" class="hph-text-cont">
+  <a href="#/" class="hph-text-cont">
     <img src="@/assets/logo/text.png" alt="hydrophilia text">
   </a>
 </template>

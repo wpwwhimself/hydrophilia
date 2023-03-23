@@ -1,5 +1,4 @@
 <script setup>
-import Nav from "./components/Nav.vue";
 import HphText from "./components/HphText.vue";
 import HphLogo from "./components/HphLogo.vue";
 
@@ -13,13 +12,9 @@ const today = new Date;
 </script>
 
 <template>
-  <header>
-    <img src="@/assets/logo/hydrophilia.png" alt="logo" class="logo hph-logo-cont">
-    <HphText />
-    <Nav />
-  </header>
-  <div class="main-wrapper">
-    <router-view></router-view>
+  <RouterView name="free"></RouterView>
+  <div id="main-wrapper">
+    <RouterView name="wrapped"></RouterView>
   </div>
   <footer>
     <div class="flex-right but-mobile-down center">
@@ -53,9 +48,6 @@ header{
   position: relative;
   display: flex; justify-content: center; align-items: center;
   flex-direction: column;
-  background-image: url("assets/logo/background.jpg");
-  background-position: center;
-  background-size: cover;
   padding: 5em;
 }
 header .hph-logo-cont{

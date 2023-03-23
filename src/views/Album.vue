@@ -23,7 +23,7 @@ let tracklist = projects.filter(el =>
     <div>
       <h1 :style="{ color: album.color }">{{ album.name }}</h1>
       <p class="years ghost">{{ album.years }}</p>
-      <p>{{ album.desc }}</p>
+      <p class="desc">{{ album.desc }}</p>
       <h2>Track list:</h2>
       <ol class="track-list">
         <li v-for="project in tracklist">
@@ -40,12 +40,16 @@ let tracklist = projects.filter(el =>
 <style scoped>
 .grid-2{
   justify-items: center;
+  grid-template-columns: auto auto;
 }
 .album{
-  width: 40vw;
+  width: min(40vw, 40vh);
 }
 .years{
   font-style: italic;
   text-align: center;
+}
+.desc{
+  text-align: justify;
 }
 </style>
