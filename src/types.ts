@@ -9,18 +9,17 @@ export type Album = {
 
 export type Project = {
   id: string,
-  name?: string,
+  name: string | null,
   status: number,
-  title?: string,
-  album?: string,
-  inspiredBy?: string,
-  dateIn: Date | null,
-  dateOut: Date | null,
+  title: string | null,
+  album: string | null,
+  inspiredBy: string | null,
+  dateIn: string | null,
+  dateOut: string | null,
+  no?: number | null,
 };
 
 export type Track = {
   projectId: string,
-  albumCode: string,
-  title?: string | null,
   no: number,
 };

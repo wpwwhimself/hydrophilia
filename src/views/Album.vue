@@ -3,22 +3,17 @@ import albums from "@/data/albums.json";
 import projects from "@/data/projects.json";
 import tracks from "@/data/tracks.json";
 import { useRoute } from "vue-router";
-import type { Album, Track } from "@/types";
+import type { Album, Project } from "@/types";
 import Button from "@/components/Button.vue";
 
 const route = useRoute();
 
-let album: Album = albums.filter(el =>
-  el.name.toLowerCase().replace(/[ ']/g, "-") == route.params.albumName
-)[0];
-let tracklist: Track[] = tracks
-  .filter(el =>
-    el.albumCode == album.code
-  )
-  .sort((a, b) => a.no - b.no);
+let album: Album = albums.filter(el => el.name.toLowerCase().replace(/[ ']/g, "-") == route.params.albumName)[0];
+let tracklist: Project[] = projects.filter(el => el.album == album.name && el.status == 0);
 for(let el of tracklist){
-  el.title = projects.filter(el1 => el1.id == el.projectId)[0].title;
-}
+  el.no = tracks.filter(el1 => el1.projectId == el.id)[0]?.no;
+};
+tracklist.sort((a,b) => (a.no ?? 0) - (b.no ?? 0));
 </script>
 
 <template>
