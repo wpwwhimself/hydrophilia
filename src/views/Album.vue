@@ -8,7 +8,14 @@ import Button from "@/components/Button.vue";
 const route = useRoute();
 
 let album: Album = albums.filter(el => el.name.toLowerCase().replace(/[ ']/g, "-") == route.params.albumName)[0];
-let tracklist: Project[] = projects.filter(el => el.album == album.name && el.status == 0);
+let tracklist: Project[] = projects.filter(
+  el => (
+    (album.code == "noalbum") ?
+      !el.album && ["F", "V", "A"].includes(el.id.substring(0, 1)) :
+      el.album == album.name
+    )
+    && el.status == 0
+);
 tracklist.sort((a,b) => (a.no ?? 0) - (b.no ?? 0));
 </script>
 
