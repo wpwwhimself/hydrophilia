@@ -17,3 +17,10 @@ export type Project = {
   dateIn: Date | null,
   dateOut: Date | null,
 };
+
+export type Track = {
+  projectId: string,
+  albumCode: string,
+  title?: string | null,
+  no: number,
+};

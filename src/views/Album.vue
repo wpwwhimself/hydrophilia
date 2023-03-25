@@ -1,20 +1,24 @@
 <script setup lang="ts">
 import albums from "@/data/albums.json";
 import projects from "@/data/projects.json";
+import tracks from "@/data/tracks.json";
 import { useRoute } from "vue-router";
-import type { Album } from "@/types";
+import type { Album, Track } from "@/types";
 import Button from "@/components/Button.vue";
 
 const route = useRoute();
 
-let album = albums.filter(el =>
+let album: Album = albums.filter(el =>
   el.name.toLowerCase().replace(/[ ']/g, "-") == route.params.albumName
 )[0];
-let tracklist = projects.filter(el =>
-  el.album?.toLowerCase().replace(/[ ']/g, "-") == route.params.albumName
-  &&
-  el.status == 0
-);
+let tracklist: Track[] = tracks
+  .filter(el =>
+    el.albumCode == album.code
+  )
+  .sort((a, b) => a.no - b.no);
+for(let el of tracklist){
+  el.title = projects.filter(el1 => el1.id == el.projectId)[0].title;
+}
 </script>
 
 <template>
@@ -26,8 +30,8 @@ let tracklist = projects.filter(el =>
       <p class="desc">{{ album.desc }}</p>
       <h2>Track list:</h2>
       <ol class="track-list">
-        <li v-for="project in tracklist">
-          {{ project.title }}
+        <li v-for="track in tracklist" :data-no="track.no">
+          {{ track.title }}
         </li>
       </ol>
     </div>
