@@ -9,14 +9,14 @@ export type Album = {
 
 export type Project = {
   id: string,
-  name: string | null,
+  name?: string,
   status: number,
-  title: string | null,
-  album: string | null,
-  inspiredBy: string | null,
-  dateIn: string | null,
-  dateOut: string | null,
-  no?: number | null,
+  title?: string,
+  album?: string,
+  inspiredBy?: string,
+  dateIn?: string,
+  dateOut?: string,
+  no?: number,
 };
 
 export type Track = {
