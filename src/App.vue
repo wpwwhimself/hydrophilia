@@ -13,7 +13,7 @@ const today = new Date;
 
 <template>
   <RouterView name="free"></RouterView>
-  <div id="main-wrapper">
+  <div id="main-wrapper" v-if="this.$route.path !== '/'">
     <RouterView name="wrapped"></RouterView>
   </div>
   <footer>
@@ -35,7 +35,7 @@ const today = new Date;
       </div>
     </div>
     <div id="footer-links">
-      <a v-for="el in footer_links" :href="el[1]">
+      <a v-for="el in footer_links" :href="el[1]" :key="el[1]">
         <i :class="el[0]"></i>
         {{ el[2] }}
       </a>

@@ -379,24 +379,26 @@ form .flex-right{
 @media screen and (max-width: 600px){
     body{
         padding-bottom: 0;
+        background-attachment: fixed;
+        height: auto;
+        min-height: 100vh;
     }
     .grid-2{
         grid-template-columns: auto;
     }
-    .flex-right{
-        flex-direction: column;
-    }
-    .main-wrapper{
+    #main-wrapper{
         padding: 2em 1em;
         margin: 1em auto;
+        overflow-y: initial;
+        height: auto;
+        /* min-height: 75vh; */
     }
 
     header{
-        flex-direction: row;
         padding: 0.5em 1em;
     }
     header .logo{
-        height: 3em;
+        height: 10em;
     }
     header h1{
         margin: 0;
@@ -416,8 +418,6 @@ form .flex-right{
     }
 
     header nav{
-        width: calc(90vw - 6em);
-        overflow-x: scroll;
         flex-wrap: nowrap; white-space: nowrap;
         justify-content: left;
     }
@@ -430,11 +430,14 @@ form .flex-right{
     footer{
         position: static;
         width: auto;
-        margin-top: 3em; padding: 1em;
+        padding: 1em;
         flex-direction: column;
         text-align: center;
     }
     footer .contact-info{
         margin: 1em auto;
+    }
+    #end-bar{
+        align-items: center;
     }
 }
