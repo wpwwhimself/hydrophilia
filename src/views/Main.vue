@@ -17,4 +17,9 @@ import Header from '@/components/Header.vue';
 header .logo{
   height: min(80vw, 80vh);
 }
+@media screen and (max-width: 600px){
+  #wrapper{
+    height: 80vh;
+  }
+}
 </style>
