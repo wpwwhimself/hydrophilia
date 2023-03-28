@@ -27,7 +27,7 @@ switch(props.project.status){
       </span>
     </span>
     <span class="flex-down">
-      <p v-if="project.status == 3"><i>with <b>{{ project.title }}</b></i></p>
+      <p v-if="project.status == 3"><i>with <b>{{ project.fusedWith }}</b></i></p>
       <h3 v-else-if="project.title">{{ project.title }}</h3>
       <p v-else class="grayed-out">untitled (yet)</p>
       <p>{{ project.album }}</p>

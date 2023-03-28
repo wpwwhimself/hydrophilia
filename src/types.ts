@@ -17,6 +17,7 @@ export type Project = {
   dateIn?: string,
   dateOut?: string,
   no?: number,
+  fusedWith?: number,
 };
 
 export type Track = {
