@@ -73,4 +73,16 @@ span.finished{ color: hsl(100, 80%, 70%) }
 span.open{ color: hsl(0, 80%, 70%) }
 span.scrapped{ color: hsl(50, 80%, 70%) }
 span.fused{ color: hsl(270, 80%, 70%) }
+
+@media screen and (max-width: 600px){
+  .project{
+    grid-template-columns: auto;
+  }
+  .project .flex-down{
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+  }
+}
 </style>

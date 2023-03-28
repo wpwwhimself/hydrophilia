@@ -57,6 +57,9 @@ function pFilter(status: string): void{
 </template>
 
 <style scoped>
+small{
+  font-size: 0.75em;
+}
 #filters{
   margin-bottom: 1em;
 }

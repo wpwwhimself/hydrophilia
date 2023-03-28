@@ -23,7 +23,7 @@ tracklist.sort((a,b) => (a.no ?? 0) - (b.no ?? 0));
   <div class="grid-2">
     <img class="album" :src="`/album_pics/${album.code}.png`" :alt="`Album art for ${album.name}`" />
     <div>
-      <h1 :style="{ color: album.color }">{{ album.name }}</h1>
+      <h1 class="title" :style="{ color: album.color }">{{ album.name }}</h1>
       <p class="years ghost">{{ album.years }}</p>
       <p class="desc">{{ album.desc }}</p>
       <h2>Track list:</h2>
@@ -53,5 +53,13 @@ tracklist.sort((a,b) => (a.no ?? 0) - (b.no ?? 0));
 }
 .desc{
   text-align: justify;
+}
+.title{
+  margin: 0.5em 0 0;
+}
+@media screen and (max-width: 600px) {
+  .grid-2{
+    grid-template-columns: auto;
+  }
 }
 </style>

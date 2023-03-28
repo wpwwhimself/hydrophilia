@@ -377,11 +377,11 @@ form .flex-right{
 }
 
 @media screen and (max-width: 600px){
-    body{
-        padding-bottom: 0;
-        background-attachment: fixed;
-        height: auto;
+    #app{
         min-height: 100vh;
+    }
+    body{
+        background-attachment: fixed;
     }
     .grid-2{
         grid-template-columns: auto;
@@ -391,11 +391,10 @@ form .flex-right{
         margin: 1em auto;
         overflow-y: initial;
         height: auto;
-        /* min-height: 75vh; */
     }
 
     header{
-        padding: 0.5em 1em;
+        padding: 4em 0 2em;
     }
     header .logo{
         height: 10em;

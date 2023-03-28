@@ -10,16 +10,11 @@ import Header from '@/components/Header.vue';
 
 <style scoped>
 #wrapper{
-  height: calc(100vh - 7em);
+  height: calc(100vh - 13.5em);
   display: flex;
   justify-content: center; align-items: center;
 }
 header .logo{
   height: min(80vw, 80vh);
-}
-@media screen and (max-width: 600px){
-  #wrapper{
-    height: 80vh;
-  }
 }
 </style>
