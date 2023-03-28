@@ -13,7 +13,7 @@ const today = new Date;
 
 <template>
   <RouterView name="free"></RouterView>
-  <div id="main-wrapper" v-if="this.$route.path !== '/'">
+  <div id="main-wrapper" v-if="$route.path !== '/'">
     <RouterView name="wrapped"></RouterView>
   </div>
   <footer>
